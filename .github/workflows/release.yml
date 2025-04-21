@@ -22,6 +22,10 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: ${{ inputs.platform }}-artifacts
+      - name: Untar artifacts
+        run: tar -xvf ${{ inputs.platform }}-artifacts.tar
+      - name: Delete artifact tar
+        run: rm -rf ${{ inputs.platform }}-artifacts.tar
       - name: Archive Artifacts
         uses: thedoctor0/zip-release@master
         with:

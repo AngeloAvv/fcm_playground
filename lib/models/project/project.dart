@@ -4,8 +4,6 @@ part 'project.freezed.dart';
 
 @freezed
 abstract class Project with _$Project {
-  const Project._();
-
   const factory Project(
     int id, {
     String? name,

@@ -1,7 +1,10 @@
 name: fcm_playground
-description: "A new Flutter project."
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+description: "A tool to test Firebase Cloud Messaging (FCM) notifications on supported devices."
+publish_to: 'none'
 version: 1.0.0+1
+repository: https://github.com/AngeloAvv/fcm_playground
+issue_tracker: https://github.com/AngeloAvv/fcm_playground/issues
+homepage: https://www.angelocassano.it
 
 environment:
   sdk: ^3.7.2

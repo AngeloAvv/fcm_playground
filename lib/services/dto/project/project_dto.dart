@@ -1,12 +1,9 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:pine/pine.dart';
 
 part 'project_dto.freezed.dart';
 
 @freezed
-abstract class ProjectDTO extends DTO with _$ProjectDTO {
-  const ProjectDTO._();
-
+abstract class ProjectDTO with _$ProjectDTO {
   const factory ProjectDTO(
     int id, {
     String? name,

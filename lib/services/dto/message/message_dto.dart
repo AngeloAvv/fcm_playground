@@ -1,13 +1,10 @@
 import 'package:fcm_playground/services/dto/notification/notification_dto.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:pine/pine.dart';
 
 part 'message_dto.freezed.dart';
 
 @freezed
-abstract class MessageDTO extends DTO with _$MessageDTO {
-  const MessageDTO._() : super();
-
+abstract class MessageDTO with _$MessageDTO {
   const factory MessageDTO({
     NotificationDTO? notification,
     Map<String, String>? data,
