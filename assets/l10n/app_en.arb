@@ -1,0 +1,87 @@
+{
+  "appName": "Firebase Cloud Messaging Playground",
+
+  "actionImportProject": "Import Project",
+  "actionYes": "Yes",
+  "actionNo":"No",
+  "actionOk": "Ok",
+  "actionSave": "Save",
+  "actionSend": "Send",
+
+  "dialogImportServiceAccount": "Import Service Account",
+  "dialogImportedProjectTitle": "Project Imported",
+  "dialogImportedProjectMessage": "The project has been imported successfully. You can now start sending messages to your devices.",
+  "dialogErrorImportingProjectTitle": "Error Importing Project",
+  "dialogErrorImportingProjectMessage": "An error occurred while importing the project. Please try again.",
+  "dialogRemoveProjectTitle": "Remove Project",
+  "dialogRemoveProjectMessage": "Are you sure you want to remove this project? This action cannot be undone.",
+  "dialogErrorRemovingProjectTitle": "Error Removing Project",
+  "dialogErrorRemovingProjectMessage": "An error occurred while removing the project. Please try again.",
+  "dialogEditedProjectTitle": "Project Edited",
+  "dialogEditedProjectMessage": "The project has been edited successfully.",
+  "dialogErrorEditingProjectTitle": "Error Editing Project",
+  "dialogErrorEditingProjectMessage": "An error occurred while editing the project. Please try again.",
+  "dialogSentNotificationTitle": "Notification Sent",
+  "dialogSentNotificationMessage": "The notification has been sent successfully.",
+  "dialogErrorSendingNotificationTitle": "Error Sending Notification",
+  "dialogErrorSendingNotificationMessage": "An error occurred while sending the notification. Please try again.",
+
+  "errorGeneric": "An error occurred. Please try again.",
+
+  "hintNotificationTitle": "Insert the title to be displayed in the notification.",
+  "hintNotificationBody": "Insert the body of the notification.",
+  "hintNotificationImage": "Insert the URL of the image to be displayed in the notification.",
+  "hintNotificationToken": "Insert the token of the device to which the notification will be sent.",
+  "hintNotificationTopic": "Insert the topic to which the notification will be sent.",
+  "hintNotificationData": "Insert the data to be sent with the notification.",
+  "hintProjectName": "Insert the name of the project.",
+  "hintProjectId": "Insert the ID of the project.",
+  "hintProjectClientId": "Insert the client ID of the project.",
+  "hintProjectPrivateKey": "Insert the private key of the project.",
+  "hintProjectClientEmail": "Insert the client email of the project.",
+
+  "labelLetsBegin": "Let's begin",
+  "labelSelectProject": "Click on the button below to import a Firebase project.",
+  "labelGenericErrorTitle": "Uh oh!",
+  "labelErrorGettingProject": "Error getting project. Please try again.",
+  "labelErrorFetchingProjects": "Error fetching projects. Please try again.",
+  "labelCreatedOn": "Created on {date}",
+  "@labelCreatedOn": {
+    "description": "Label for the date when the project was created",
+    "placeholders": {
+      "date": {
+        "type": "DateTime",
+        "format": "yMd",
+        "example": "11/10/2021",
+        "description": "Balance date"
+      }
+    }
+  },
+  "labelNotificationTitle": "Notification Title",
+  "labelNotificationBody": "Notification Body",
+  "labelNotificationImage": "Notification Image",
+  "labelNotificationType": "Notification Type",
+  "labelNotificationToken": "Notification Token",
+  "labelNotificationTopic": "Notification Topic",
+  "labelNotificationData": "Notification Data",
+  "labelProjectName": "Project Name",
+  "labelProjectId": "Project ID",
+  "labelProjectClientId": "Project Client ID",
+  "labelProjectPrivateKey": "Project Private Key",
+  "labelProjectClientEmail": "Project Client Email",
+  "labelToken": "Token",
+  "labelTopic": "Topic",
+
+  "settingsApp": "App",
+  "settingsTheme": "Theme",
+
+  "themeSystem": "System",
+  "themeDark": "Dark",
+  "themeLight": "Light",
+
+  "titleRecentProjects": "Recent Projects",
+  "titleSettings": "Settings",
+
+  "validationRequired": "This field is required.",
+  "validationInvalidJson": "This field must be a valid JSON."
+}
