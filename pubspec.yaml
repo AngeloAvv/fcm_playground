@@ -29,7 +29,7 @@ dependencies:
   http: ^1.3.0
   intl: any
   pine: ^1.0.3
-  provider: ^6.1.2
+  provider: ^6.1.5+1
   reactive_forms: ^17.0.1
   rxdart: ^0.28.0
   shared_preferences: ^2.5.3
