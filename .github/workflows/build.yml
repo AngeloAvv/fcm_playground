@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    runs-on: ${{ inputs.platform == 'linux' && 'ubuntu-latest' || inputs.platform == 'windows' && 'windows-latest' || inputs.platform == 'macos' && 'macos-latest' }}
+    runs-on: ${{ inputs.platform == 'linux' && 'ubuntu-latest' || inputs.platform == 'windows' && 'windows-2022' || inputs.platform == 'macos' && 'macos-latest' }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
