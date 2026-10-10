@@ -1,0 +1,4 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["github>MyLittleSuite/renovate-configs//flutter/default"]
+}
