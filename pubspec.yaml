@@ -20,7 +20,7 @@ dependencies:
   drift: ^2.26.0
   drift_flutter: ^0.2.4
   file_picker: ^10.3.10
-  flutter_bloc: ^9.0.0
+  flutter_bloc: ^9.1.1
   flutter_essentials_kit: ^2.5.0
   flutter_launch_arguments: ^1.0.1
   freezed_annotation: ^3.0.0
