@@ -19,7 +19,7 @@ dependencies:
   dart_mapper: ^0.8.0
   drift: ^2.26.0
   drift_flutter: ^0.2.4
-  file_picker: ^10.3.10
+  file_picker: ^11.0.3
   flutter_bloc: ^9.1.1
   flutter_essentials_kit: ^2.5.0
   flutter_launch_arguments: ^1.0.1
