@@ -12,14 +12,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Rename ref name
-        uses: mad9000/actions-find-and-replace-string@5
+        uses: mad9000/actions-find-and-replace-string@6
         id: version
         with:
           source: ${{ github.ref_name }}
           find: '/'
           replace: '-'
       - name: Download artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: ${{ inputs.platform }}-artifacts
       - name: Untar artifacts
@@ -32,7 +32,7 @@ jobs:
           type: 'zip'
           filename: FcmPlayground-${{ steps.version.outputs.value }}-${{inputs.platform}}.zip
       - name: Artifacts Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
