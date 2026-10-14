@@ -5,7 +5,7 @@ import 'package:fcm_playground/features/routing/app_router.dart';
 import 'package:fcm_playground/features/theme/widgets/theme_selector.dart';
 import 'package:fcm_playground/widgets/reactive/reactive_forms_config.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:fcm_playground/features/localization/generated/app_localizations.dart';
 
 import 'features/theme/models/theme.dart';
 

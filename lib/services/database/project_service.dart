@@ -174,7 +174,7 @@ class ProjectServiceImpl extends Service implements ProjectService {
       final project = await projectDAO.get(id);
 
       logger.info('[$ProjectService] Project retrieved!');
-      return project?.let(projectMapper.fromEntity);
+      return await project?.let(projectMapper.fromEntity);
     } catch (error, stackTrace) {
       logger.error(
         '[$ProjectService] Error getting project!',

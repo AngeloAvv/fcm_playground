@@ -1,4 +1,23 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>MyLittleSuite/renovate-configs//flutter/default"]
+  "extends": ["github>MyLittleSuite/renovate-configs//flutter/default"],
+  "packageRules": [
+    {
+      "description": "Packages sharing the analyzer constraint must be bumped together",
+      "matchManagers": ["pub"],
+      "matchPackageNames": [
+        "analyzer",
+        "build_runner",
+        "mockito",
+        "bloc_test",
+        "freezed",
+        "drift_dev",
+        "dart_mapper",
+        "dart_mapper_generator",
+        "auto_route",
+        "auto_route_generator"
+      ],
+      "groupName": "analyzer-bound packages"
+    }
+  ]
 }

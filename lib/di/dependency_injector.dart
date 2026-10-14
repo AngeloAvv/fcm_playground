@@ -12,7 +12,6 @@ import 'package:fcm_playground/services/database/project_service.dart' as db;
 import 'package:fcm_playground/services/local/file_picker_service.dart';
 import 'package:fcm_playground/services/local/project_service.dart';
 import 'package:fcm_playground/services/network/notification_service.dart';
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_launch_arguments/flutter_launch_arguments.dart';

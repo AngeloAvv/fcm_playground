@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class LightTheme {
   static const double _borderRadius = 16.0;
 
-  static get make => ThemeData(
+  static ThemeData get make => ThemeData(
     brightness: Brightness.light,
     appBarTheme: AppBarTheme(
       centerTitle: true,
@@ -49,7 +49,7 @@ class LightTheme {
 class DarkTheme {
   static const double _borderRadius = 16.0;
 
-  static get make => ThemeData(
+  static ThemeData get make => ThemeData(
     brightness: Brightness.dark,
     appBarTheme: AppBarTheme(
       centerTitle: true,

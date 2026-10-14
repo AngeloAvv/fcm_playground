@@ -19,7 +19,6 @@ final List<SingleChildWidget> _providers = [
   ),
   Provider<FilePickerService>(
     create: (context) => FilePickerServiceImpl(
-      filePicker: FilePicker.platform,
       logger: context.read(),
     ),
   ),

@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:fcm_playground/repositories/repository.dart';
 import 'package:fcm_playground/services/local/file_picker_service.dart';
 
@@ -16,8 +18,9 @@ abstract interface class FilePickerRepository {
   });
 
   Future<String?> save({
+    required String name,
+    required Uint8List bytes,
     String? title,
-    String? name,
     String? directory,
     List<String>? allowedExtensions,
   });
@@ -87,8 +90,9 @@ class FilePickerRepositoryImpl extends Repository
 
   @override
   Future<String?> save({
+    required String name,
+    required Uint8List bytes,
     String? title,
-    String? name,
     String? directory,
     List<String>? allowedExtensions,
   }) async {
@@ -96,8 +100,9 @@ class FilePickerRepositoryImpl extends Repository
       logger.debug('[$FilePickerService] Saving file...');
 
       final result = await filePickerService.save(
-        title: title,
         name: name,
+        bytes: bytes,
+        title: title,
         directory: directory,
         allowedExtensions: allowedExtensions,
       );

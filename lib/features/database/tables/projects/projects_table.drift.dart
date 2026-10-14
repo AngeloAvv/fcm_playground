@@ -197,19 +197,12 @@ class $$ProjectsTableTableTableManager
         i0.TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer:
-              () =>
-                  i1.$$ProjectsTableTableFilterComposer($db: db, $table: table),
-          createOrderingComposer:
-              () => i1.$$ProjectsTableTableOrderingComposer(
-                $db: db,
-                $table: table,
-              ),
-          createComputedFieldComposer:
-              () => i1.$$ProjectsTableTableAnnotationComposer(
-                $db: db,
-                $table: table,
-              ),
+          createFilteringComposer: () =>
+              i1.$$ProjectsTableTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              i1.$$ProjectsTableTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              i1.$$ProjectsTableTableAnnotationComposer($db: db, $table: table),
           updateCompanionCallback:
               ({
                 i0.Value<int> id = const i0.Value.absent(),
@@ -250,16 +243,18 @@ class $$ProjectsTableTableTableManager
                 createdAt: createdAt,
                 updatedAt: updatedAt,
               ),
-          withReferenceMapper:
-              (p0) =>
-                  p0
-                      .map(
-                        (e) => (
-                          e.readTable(table),
-                          i0.BaseReferences(db, table, e),
-                        ),
-                      )
-                      .toList(),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<i1.$ProjectsTableTable, i1.ProjectsEntity>(table),
+                  i0.BaseReferences<
+                    i0.GeneratedDatabase,
+                    i1.$ProjectsTableTable,
+                    i1.ProjectsEntity
+                  >(db, table, e),
+                ),
+              )
+              .toList(),
           prefetchHooksCallback: null,
         ),
       );
@@ -475,40 +470,34 @@ class $ProjectsTableTable extends i2.ProjectsTable
   i1.ProjectsEntity map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return i1.ProjectsEntity(
-      id:
-          attachedDatabase.typeMapping.read(
-            i0.DriftSqlType.int,
-            data['${effectivePrefix}id'],
-          )!,
+      id: attachedDatabase.typeMapping.read(
+        i0.DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
       name: attachedDatabase.typeMapping.read(
         i0.DriftSqlType.string,
         data['${effectivePrefix}name'],
       ),
-      projectId:
-          attachedDatabase.typeMapping.read(
-            i0.DriftSqlType.string,
-            data['${effectivePrefix}project_id'],
-          )!,
-      clientId:
-          attachedDatabase.typeMapping.read(
-            i0.DriftSqlType.string,
-            data['${effectivePrefix}client_id'],
-          )!,
-      privateKey:
-          attachedDatabase.typeMapping.read(
-            i0.DriftSqlType.string,
-            data['${effectivePrefix}private_key'],
-          )!,
-      clientEmail:
-          attachedDatabase.typeMapping.read(
-            i0.DriftSqlType.string,
-            data['${effectivePrefix}client_email'],
-          )!,
-      createdAt:
-          attachedDatabase.typeMapping.read(
-            i0.DriftSqlType.dateTime,
-            data['${effectivePrefix}created_at'],
-          )!,
+      projectId: attachedDatabase.typeMapping.read(
+        i0.DriftSqlType.string,
+        data['${effectivePrefix}project_id'],
+      )!,
+      clientId: attachedDatabase.typeMapping.read(
+        i0.DriftSqlType.string,
+        data['${effectivePrefix}client_id'],
+      )!,
+      privateKey: attachedDatabase.typeMapping.read(
+        i0.DriftSqlType.string,
+        data['${effectivePrefix}private_key'],
+      )!,
+      clientEmail: attachedDatabase.typeMapping.read(
+        i0.DriftSqlType.string,
+        data['${effectivePrefix}client_email'],
+      )!,
+      createdAt: attachedDatabase.typeMapping.read(
+        i0.DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
       updatedAt: attachedDatabase.typeMapping.read(
         i0.DriftSqlType.dateTime,
         data['${effectivePrefix}updated_at'],
@@ -563,19 +552,17 @@ class ProjectsEntity extends i0.DataClass
   i1.ProjectsTableCompanion toCompanion(bool nullToAbsent) {
     return i1.ProjectsTableCompanion(
       id: i0.Value(id),
-      name:
-          name == null && nullToAbsent
-              ? const i0.Value.absent()
-              : i0.Value(name),
+      name: name == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(name),
       projectId: i0.Value(projectId),
       clientId: i0.Value(clientId),
       privateKey: i0.Value(privateKey),
       clientEmail: i0.Value(clientEmail),
       createdAt: i0.Value(createdAt),
-      updatedAt:
-          updatedAt == null && nullToAbsent
-              ? const i0.Value.absent()
-              : i0.Value(updatedAt),
+      updatedAt: updatedAt == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(updatedAt),
     );
   }
 
@@ -635,10 +622,12 @@ class ProjectsEntity extends i0.DataClass
       name: data.name.present ? data.name.value : this.name,
       projectId: data.projectId.present ? data.projectId.value : this.projectId,
       clientId: data.clientId.present ? data.clientId.value : this.clientId,
-      privateKey:
-          data.privateKey.present ? data.privateKey.value : this.privateKey,
-      clientEmail:
-          data.clientEmail.present ? data.clientEmail.value : this.clientEmail,
+      privateKey: data.privateKey.present
+          ? data.privateKey.value
+          : this.privateKey,
+      clientEmail: data.clientEmail.present
+          ? data.clientEmail.value
+          : this.clientEmail,
       createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
       updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
     );

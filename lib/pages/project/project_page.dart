@@ -274,7 +274,7 @@ class _ProjectState extends State<ProjectPage> {
     );
   }
 
-  void _onTypeChanged(event) {
+  void _onTypeChanged(Object? event) {
     _form.patchValue({
       ProjectPage._kFormToken: null,
       ProjectPage._kFormTopic: null,
