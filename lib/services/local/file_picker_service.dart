@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:fcm_playground/services/service.dart';
 import 'package:file_picker/file_picker.dart';
 
@@ -13,8 +15,9 @@ abstract interface class FilePickerService {
   Future<String?> pickFolder({String? title, String? directory});
 
   Future<String?> save({
+    required String name,
+    required Uint8List bytes,
     String? title,
-    String? name,
     String? directory,
     List<String>? allowedExtensions,
   });
@@ -22,12 +25,7 @@ abstract interface class FilePickerService {
 
 /// Implementation of the base interface FilePickerService
 class FilePickerServiceImpl extends Service implements FilePickerService {
-  final FilePicker filePicker;
-
-  const FilePickerServiceImpl({
-    required this.filePicker,
-    required super.logger,
-  });
+  const FilePickerServiceImpl({required super.logger});
 
   @override
   Future<List<String>?> pickFiles({
@@ -39,17 +37,27 @@ class FilePickerServiceImpl extends Service implements FilePickerService {
     try {
       logger.debug('[$FilePickerService] Picking files...');
 
-      final result = await filePicker.pickFiles(
-        dialogTitle: title,
-        initialDirectory: directory,
-        allowMultiple: multiple,
-        allowedExtensions: allowedExtensions,
-        type: FileType.custom,
-      );
+      final result = multiple
+          ? await FilePicker.pickFiles(
+              dialogTitle: title,
+              initialDirectory: directory,
+              allowedExtensions: allowedExtensions,
+              type: FileType.custom,
+            )
+          : [
+              ?await FilePicker.pickFile(
+                dialogTitle: title,
+                initialDirectory: directory,
+                allowedExtensions: allowedExtensions,
+                type: FileType.custom,
+              ),
+            ];
 
       logger.debug('[$FilePickerService] Picked files: $result');
 
-      return result?.paths.nonNulls.toList(growable: false);
+      final paths = result.map((file) => file.path).nonNulls.toList();
+
+      return paths.isEmpty ? null : paths;
     } catch (error, stackTrace) {
       logger.error(
         '[$FilePickerService] Error picking files',
@@ -66,7 +74,7 @@ class FilePickerServiceImpl extends Service implements FilePickerService {
     try {
       logger.debug('[$FilePickerService] Picking folder...');
 
-      final result = await filePicker.getDirectoryPath(
+      final result = await FilePicker.getDirectoryPath(
         dialogTitle: title,
         initialDirectory: directory,
       );
@@ -87,25 +95,27 @@ class FilePickerServiceImpl extends Service implements FilePickerService {
 
   @override
   Future<String?> save({
+    required String name,
+    required Uint8List bytes,
     String? title,
-    String? name,
     String? directory,
     List<String>? allowedExtensions,
   }) async {
     try {
       logger.debug('[$FilePickerService] Saving file...');
 
-      final result = await filePicker.saveFile(
+      final uri = await FilePicker.saveFile(
         dialogTitle: title,
         fileName: name,
+        bytes: bytes,
         initialDirectory: directory,
         allowedExtensions: allowedExtensions,
         type: FileType.custom,
       );
 
-      logger.debug('[$FilePickerService] Saved file: $result');
+      logger.debug('[$FilePickerService] Saved file: $uri');
 
-      return result;
+      return uri?.toFilePath();
     } catch (error, stackTrace) {
       logger.error('[$FilePickerService] Error saving file', error, stackTrace);
 

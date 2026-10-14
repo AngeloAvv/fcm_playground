@@ -17,8 +17,9 @@ sealed class FilePickerEvent with _$FilePickerEvent {
   }) = PickFolderFilePickerEvent;
 
   const factory FilePickerEvent.save({
+    required String name,
+    required Uint8List bytes,
     String? title,
-    String? name,
     String? directory,
     List<String>? allowedExtensions,
     @Default({}) Map<String, dynamic> parameters,

@@ -11,4 +11,4 @@ PRODUCT_NAME = Firebase Cloud Messaging Playground
 PRODUCT_BUNDLE_IDENTIFIER = it.angelocassano.fcmPlayground
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2025 it.angelocassano. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2026 it.angelocassano. All rights reserved.

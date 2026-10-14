@@ -5,6 +5,8 @@ import 'package:pine/pine.dart';
 
 class ServiceAccountCredentialsDTO extends ServiceAccountCredentials
     implements DTO {
+  @override
+  // ignore: overridden_fields
   final String projectId;
 
   /// Creates a new [ServiceAccountCredentialsDTO] from JSON.

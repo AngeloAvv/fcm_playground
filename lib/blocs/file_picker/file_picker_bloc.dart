@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:typed_data';
 
 import 'package:fcm_playground/errors/generic_error.dart';
 import 'package:fcm_playground/repositories/file_picker_repository.dart';
@@ -56,15 +57,17 @@ class FilePickerBloc extends Bloc<FilePickerEvent, FilePickerState> {
 
   /// Method used to add the [SaveFilePickerEvent] event
   void save({
+    required String name,
+    required Uint8List bytes,
     String? title,
-    String? name,
     String? directory,
     List<String>? allowedExtensions,
     Map<String, dynamic> parameters = const {},
   }) => add(
     FilePickerEvent.save(
-      title: title,
       name: name,
+      bytes: bytes,
+      title: title,
       directory: directory,
       allowedExtensions: allowedExtensions,
       parameters: parameters,
@@ -148,8 +151,9 @@ class FilePickerBloc extends Bloc<FilePickerEvent, FilePickerState> {
 
     try {
       final path = await filePickerRepository.save(
-        title: event.title,
         name: event.name,
+        bytes: event.bytes,
+        title: event.title,
         directory: event.directory,
         allowedExtensions: event.allowedExtensions,
       );

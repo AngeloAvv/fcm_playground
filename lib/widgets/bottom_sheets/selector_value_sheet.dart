@@ -43,15 +43,21 @@ class SelectorValueSheet<T> extends StatelessWidget {
             title!,
             style: Theme.of(context).textTheme.titleLarge,
           ),
-          ...values.map(
-            (value) => RadioListTile<T>(
-              value: value,
-              groupValue: value == initialValue ? value : null,
-              onChanged: (value) => context.maybePop().then(
-                    (_) => onSelectedValueChanged?.call(value),
+          RadioGroup<T>(
+            groupValue: initialValue,
+            onChanged: (value) => context.maybePop().then(
+                  (_) => onSelectedValueChanged?.call(value),
+                ),
+            child: Column(
+              children: [
+                ...values.map(
+                  (value) => RadioListTile<T>(
+                    value: value,
+                    title: Text(localizeTitle?.call(value) ?? value.toString()),
+                    subtitle: localizeSubtitle?.let((localizeSubtitle) => Text(localizeSubtitle.call(value) ?? value.toString())),
                   ),
-              title: Text(localizeTitle?.call(value) ?? value.toString()),
-              subtitle: localizeSubtitle?.let((localizeSubtitle) => Text(localizeSubtitle.call(value) ?? value.toString())),
+                ),
+              ],
             ),
           ),
         ],
