@@ -44,13 +44,13 @@ dev_dependencies:
     sdk: flutter
   auto_route_generator: ^10.6.0
   bloc_test: ^10.0.0
-  build_runner: ^2.4.9
+  build_runner: ^2.17.1
   dart_mapper_generator: ^1.0.10
   data_fixture_dart: ^3.0.0
-  drift_dev: ^2.26.0
+  drift_dev: ^2.35.2
   flutter_lints: ^6.0.0
-  freezed: ^4.0.1
-  mockito: ^5.4.4
+  freezed: ^4.0.3
+  mockito: ^5.8.1
   mocktail: ^1.0.5
 
 flutter:
