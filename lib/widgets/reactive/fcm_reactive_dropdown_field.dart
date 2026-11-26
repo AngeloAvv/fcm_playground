@@ -1,64 +1,61 @@
-import 'package:fcm_playground/features/material/flutter_material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
-class FcmReactiveDropdownField<T> extends StatelessWidget {
-  final Key? textFieldKey;
-  final String formControlName;
-  final String? label;
-  final TextStyle? style;
-  final InputDecoration decoration;
-  final bool showErrors;
-  final Map<String, ValidationMessageFunction>? validationMessages;
-  final bool readOnly;
-  final EdgeInsets padding;
-  final bool autofocus;
-  final List<DropdownMenuItem<T>> items;
-
-  const FcmReactiveDropdownField(this.items, {
+class FcmReactiveDropdownField<T> extends ReactiveFocusableFormField<T, T> {
+  FcmReactiveDropdownField(
+    List<DropdownMenuItem<T>> items, {
+    required String formControlName,
+    String? label,
+    Key? textFieldKey,
+    TextStyle? style,
+    InputDecoration decoration = const InputDecoration(),
+    bool showErrors = true,
+    bool readOnly = false,
+    EdgeInsets padding = EdgeInsets.zero,
+    bool autofocus = false,
+    super.validationMessages,
     super.key,
-    this.textFieldKey,
-    required this.formControlName,
-    this.label,
-    this.style,
-    this.decoration = const InputDecoration(),
-    this.showErrors = true,
-    this.validationMessages,
-    this.readOnly = false,
-    this.padding = EdgeInsets.zero,
-    this.autofocus = false,
-  });
+  }) : super(
+         formControlName: formControlName,
+         showErrors: !showErrors ? (_) => false : null,
+         builder: (field) {
+           final effectiveDecoration = decoration.applyDefaults(
+             Theme.of(field.context).inputDecorationTheme,
+           );
+           final isDisabled = readOnly || field.control.disabled;
+           final selected = field.value;
+           final effectiveValue =
+               items.any((item) => item.value == selected) ? selected : null;
 
-  @override
-  Widget build(BuildContext context) => Padding(
-    padding: padding,
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        if (label != null) Padding(
-          padding: const EdgeInsets.only(bottom: 4.0),
-          child: Text(
-            label!,
-            style: Theme.of(context).textTheme.titleMedium,
-          ),
-        ),
-        ReactiveDropdownField<T>(
-          items: items,
-          key: textFieldKey,
-          autofocus: autofocus,
-          formControlName: formControlName,
-          style: style,
-          showErrors: !showErrors ? (_) => false : null,
-          validationMessages: validationMessages != null
-              ? {
-            ...ReactiveFormConfig.of(context)?.validationMessages ??
-                {},
-            ...validationMessages!,
-          }
-              : null,
-          readOnly: readOnly,
-          decoration: decoration,
-        ),
-      ],
-    ),
-  );
+           return Padding(
+             padding: padding,
+             child: Column(
+               crossAxisAlignment: CrossAxisAlignment.start,
+               children: [
+                 if (label != null)
+                   Padding(
+                     padding: const EdgeInsets.only(bottom: 4.0),
+                     child: Text(
+                       label,
+                       style: Theme.of(field.context).textTheme.titleMedium,
+                     ),
+                   ),
+                 DropdownButtonFormField<T>(
+                   key: textFieldKey,
+                   initialValue: effectiveValue,
+                   items: items,
+                   decoration: effectiveDecoration.copyWith(
+                     errorText: field.errorText,
+                     enabled: !isDisabled,
+                   ),
+                   style: style,
+                   focusNode: field.focusNode,
+                   autofocus: autofocus,
+                   onChanged: isDisabled ? null : field.didChange,
+                 ),
+               ],
+             ),
+           );
+         },
+       );
 }

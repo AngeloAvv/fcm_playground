@@ -1,93 +1,115 @@
-import 'package:fcm_playground/features/material/flutter_material.dart';
 import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
-class FcmReactiveTextField<T> extends StatelessWidget {
-  final Key? textFieldKey;
-  final TextInputType? keyboardType;
-  final String formControlName;
-  final String? label;
-  final TextStyle? style;
-  final TextInputAction? textInputAction;
-  final ReactiveFormFieldCallback<T>? onSubmitted;
-  final InputDecoration decoration;
-  final bool autocorrect;
-  final bool obscureText;
-  final bool showErrors;
-  final Map<String, ValidationMessageFunction>? validationMessages;
-  final bool readOnly;
-  final ControlValueAccessor<T, String>? valueAccessor;
-  final List<TextInputFormatter> inputFormatters;
-  final TextCapitalization textCapitalization;
-  final EdgeInsets padding;
-  final bool autofocus;
-  final int? minLines;
-  final int? maxLines;
-
-  const FcmReactiveTextField({
+class FcmReactiveTextField<T> extends ReactiveFocusableFormField<T, String> {
+  FcmReactiveTextField({
+    required String formControlName,
+    String? label,
+    Key? textFieldKey,
+    TextInputType? keyboardType,
+    TextStyle? style,
+    TextInputAction? textInputAction,
+    ReactiveFormFieldCallback<T>? onSubmitted,
+    InputDecoration decoration = const InputDecoration(),
+    bool autocorrect = true,
+    bool obscureText = false,
+    bool showErrors = true,
+    bool readOnly = false,
+    List<TextInputFormatter> inputFormatters = const [],
+    TextCapitalization textCapitalization = TextCapitalization.none,
+    EdgeInsets padding = EdgeInsets.zero,
+    bool autofocus = false,
+    int? minLines,
+    int? maxLines = 1,
+    super.validationMessages,
+    super.valueAccessor,
     super.key,
-    this.textFieldKey,
-    this.keyboardType,
-    required this.formControlName,
-    this.label,
-    this.style,
-    this.textInputAction,
-    this.onSubmitted,
-    this.decoration = const InputDecoration(),
-    this.autocorrect = true,
-    this.obscureText = false,
-    this.showErrors = true,
-    this.validationMessages,
-    this.readOnly = false,
-    this.valueAccessor,
-    this.inputFormatters = const [],
-    this.textCapitalization = TextCapitalization.none,
-    this.padding = EdgeInsets.zero,
-    this.autofocus = false,
-    this.minLines,
-    this.maxLines,
-  });
+  }) : super(
+         formControlName: formControlName,
+         showErrors: !showErrors ? (_) => false : null,
+         builder: (field) {
+           final state = field as _FcmReactiveTextFieldState<T>;
+           final effectiveDecoration = decoration.applyDefaults(
+             Theme.of(field.context).inputDecorationTheme,
+           );
+
+           return Padding(
+             padding: padding,
+             child: Column(
+               crossAxisAlignment: CrossAxisAlignment.start,
+               children: [
+                 if (label != null)
+                   Padding(
+                     padding: const EdgeInsets.only(bottom: 4.0),
+                     child: Text(
+                       label,
+                       style: Theme.of(field.context).textTheme.titleMedium,
+                     ),
+                   ),
+                 TextField(
+                   key: textFieldKey,
+                   controller: state._textController,
+                   focusNode: field.focusNode,
+                   decoration: effectiveDecoration.copyWith(
+                     errorText: field.errorText,
+                   ),
+                   autofocus: autofocus,
+                   keyboardType: keyboardType,
+                   textInputAction: textInputAction,
+                   style: style,
+                   textCapitalization: textCapitalization,
+                   readOnly: readOnly,
+                   obscureText: obscureText,
+                   autocorrect: autocorrect,
+                   minLines: minLines,
+                   maxLines: maxLines,
+                   inputFormatters: inputFormatters,
+                   enabled: field.control.enabled,
+                   onSubmitted:
+                       onSubmitted != null
+                           ? (_) => onSubmitted(field.control)
+                           : null,
+                   onChanged: field.didChange,
+                 ),
+               ],
+             ),
+           );
+         },
+       );
 
   @override
-  Widget build(BuildContext context) => Padding(
-    padding: padding,
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        if (label != null) Padding(
-          padding: const EdgeInsets.only(bottom: 4.0),
-          child: Text(
-            label!,
-            style: Theme.of(context).textTheme.titleMedium,
-          ),
-        ),
-        ReactiveTextField<T>(
-          key: textFieldKey,
-          autofocus: autofocus,
-          keyboardType: keyboardType,
-          formControlName: formControlName,
-          valueAccessor: valueAccessor,
-          textInputAction: textInputAction,
-          autocorrect: autocorrect,
-          obscureText: obscureText,
-          onSubmitted: onSubmitted,
-          style: style,
-          showErrors: !showErrors ? (_) => false : null,
-          validationMessages: validationMessages != null
-              ? {
-            ...ReactiveFormConfig.of(context)?.validationMessages ??
-                {},
-            ...validationMessages!,
-          }
-              : null,
-          minLines: minLines,
-          maxLines: maxLines,
-          readOnly: readOnly,
-          decoration: decoration,
-          inputFormatters: inputFormatters,
-          textCapitalization: textCapitalization,
-        ),
-      ],
-    ),
-  );
+  ReactiveFormFieldState<T, String> createState() =>
+      _FcmReactiveTextFieldState<T>();
+}
+
+class _FcmReactiveTextFieldState<T>
+    extends ReactiveFocusableFormFieldState<T, String> {
+  late final TextEditingController _textController;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _textController = TextEditingController(text: value?.toString() ?? '');
+  }
+
+  @override
+  void onControlValueChanged(dynamic value) {
+    final effectiveValue = value == null ? '' : value.toString();
+    _textController.value = _textController.value.copyWith(
+      text: effectiveValue,
+      selection: TextSelection.collapsed(offset: effectiveValue.length),
+      composing: TextRange.empty,
+    );
+
+    super.onControlValueChanged(value);
+  }
+
+  @override
+  void dispose() {
+    _textController.dispose();
+
+    super.dispose();
+  }
 }

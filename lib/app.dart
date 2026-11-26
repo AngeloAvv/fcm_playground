@@ -38,12 +38,7 @@ class _AppState extends State<App> {
             AppLocalizations.delegate,
             ...GlobalMaterialLocalizations.delegates,
           ],
-          // Legacy widgets (reactive_forms, json_text_field) still read Flutter's
-          // Theme, so bridge the material_ui ThemeData down to them.
-          // ignore: deprecated_member_use
-          builder: (context, child) => MaterialUiCompatibilityBridge(
-            child: ReactiveFormsConfig(child: child),
-          ),
+          builder: (context, child) => ReactiveFormsConfig(child: child),
         );
       },
     ),

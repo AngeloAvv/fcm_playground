@@ -1,6 +1,6 @@
 import 'package:fcm_playground/features/localization/extensions/build_context.dart';
 import 'package:fcm_playground/widgets/reactive/fcm_reactive_text_field.dart';
-import 'package:fcm_playground/features/material/flutter_material.dart';
+import 'package:material_ui/material_ui.dart';
 
 class NotificationTitleField extends StatelessWidget {
   final String formControlName;

@@ -266,13 +266,13 @@ packages:
     source: hosted
     version: "3.0.8"
   cupertino_ui:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: cupertino_ui
-      sha256: e003b87afde18cb396ec15928c7894063d64af04462c68df9a1404c461316dd2
+      sha256: c3eaf7f5bdfee36deb0b14a4cbf7602f1b6b8d8b8576b81f38fc08c25881c94c
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.5"
+    version: "1.1.7"
   dart_mapper:
     dependency: "direct main"
     description:
@@ -345,22 +345,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.3.1"
-  extended_text_field:
-    dependency: "direct overridden"
-    description:
-      name: extended_text_field
-      sha256: "495b8cc6b4a66b5323d71afe1df1c5f08b716fdc925e4339aeaa14a2f0cf65a9"
-      url: "https://pub.dev"
-    source: hosted
-    version: "17.0.0"
-  extended_text_library:
-    dependency: transitive
-    description:
-      name: extended_text_library
-      sha256: "13d99f8a10ead472d5e2cf4770d3d047203fe5054b152e9eb5dc692a71befbba"
-      url: "https://pub.dev"
-    source: hosted
-    version: "12.0.1"
   fake_async:
     dependency: transitive
     description:
@@ -669,15 +653,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.12.0"
-  json_text_field:
-    dependency: "direct main"
-    description:
-      path: "."
-      ref: HEAD
-      resolved-ref: e802e7d0a9ec13cb5e7c4b812a0c1559c112f1db
-      url: "https://github.com/antonioCaballero17/json_text_field.git"
-    source: git
-    version: "1.2.0"
   leak_tracker:
     dependency: transitive
     description:
