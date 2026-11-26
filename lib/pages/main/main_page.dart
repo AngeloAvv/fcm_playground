@@ -11,7 +11,7 @@ import 'package:fcm_playground/pages/main/widgets/import_project_card.dart';
 import 'package:fcm_playground/pages/main/widgets/project_card.dart';
 import 'package:fcm_playground/widgets/buttons/settings_icon_button.dart';
 import 'package:fcm_playground/widgets/loading_widget.dart';
-import 'package:flutter/material.dart' hide Notification;
+import 'package:material_ui/material_ui.dart' hide Notification;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_essentials_kit/flutter_essentials_kit.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';

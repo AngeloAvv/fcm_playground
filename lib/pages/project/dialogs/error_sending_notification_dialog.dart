@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:fcm_playground/features/localization/extensions/build_context.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 class ErrorSendingNotificationDialog extends StatelessWidget {
   const ErrorSendingNotificationDialog({super.key});

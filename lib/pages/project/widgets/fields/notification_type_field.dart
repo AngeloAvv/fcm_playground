@@ -1,7 +1,7 @@
 import 'package:fcm_playground/features/localization/extensions/build_context.dart';
 import 'package:fcm_playground/models/enums/notification_type.dart';
 import 'package:fcm_playground/widgets/reactive/fcm_reactive_dropdown_field.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 class NotificationTypeField extends StatelessWidget {
   final String formControlName;

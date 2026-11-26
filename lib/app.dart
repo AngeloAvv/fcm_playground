@@ -4,7 +4,7 @@ import 'package:fcm_playground/features/localization/extensions/build_context.da
 import 'package:fcm_playground/features/routing/app_router.dart';
 import 'package:fcm_playground/features/theme/widgets/theme_selector.dart';
 import 'package:fcm_playground/widgets/reactive/reactive_forms_config.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:fcm_playground/features/localization/generated/app_localizations.dart';
 
 import 'features/theme/models/theme.dart';
@@ -34,7 +34,10 @@ class _AppState extends State<App> {
           darkTheme: DarkTheme.make,
           themeMode: mode,
           supportedLocales: AppLocalizations.supportedLocales,
-          localizationsDelegates: [...AppLocalizations.localizationsDelegates],
+          localizationsDelegates: [
+            AppLocalizations.delegate,
+            ...GlobalMaterialLocalizations.delegates,
+          ],
           builder: (context, child) => ReactiveFormsConfig(child: child),
         );
       },

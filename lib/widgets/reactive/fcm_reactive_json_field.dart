@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
+import 'package:fcm_playground/widgets/reactive/json_text_editing_controller.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_essentials_kit/flutter_essentials_kit.dart';
-import 'package:json_text_field/json_text_field.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 class FcmReactiveJsonField
@@ -49,7 +49,7 @@ class FcmReactiveJsonField
                        style: Theme.of(field.context).textTheme.titleMedium,
                      ),
                    ),
-                 JsonTextField(
+                 TextField(
                    controller: state._controller,
                    key: textFieldKey,
                    autofocus: autofocus,
@@ -61,7 +61,6 @@ class FcmReactiveJsonField
                    minLines: minLines,
                    maxLines: maxLines,
                    expands: expands,
-                   showErrorMessage: false,
                    textAlignVertical: TextAlignVertical.top,
                    readOnly: readOnly,
                    decoration: decoration.copyWith(errorText: field.errorText),
@@ -82,13 +81,13 @@ class FcmReactiveJsonField
 
 class _FcmReactiveJsonFieldState
     extends ReactiveFormFieldState<Map<String, String>, String> {
-  late JsonTextFieldController _controller;
+  late final JsonTextEditingController _controller;
 
   @override
   void initState() {
     super.initState();
 
-    _controller = JsonTextFieldController();
+    _controller = JsonTextEditingController();
   }
 
   @override

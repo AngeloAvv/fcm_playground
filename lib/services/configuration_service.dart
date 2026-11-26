@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:talker/talker.dart';
-import 'package:flutter/material.dart' hide Route;
+import 'package:material_ui/material_ui.dart' hide Route;
 import 'package:shared_preferences/shared_preferences.dart';
 
 /// Abstract class of ConfigurationService
