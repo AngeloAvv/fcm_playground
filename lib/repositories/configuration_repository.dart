@@ -1,7 +1,7 @@
 import 'package:fcm_playground/mixins/configuration_helper.dart';
 import 'package:fcm_playground/repositories/repository.dart';
 import 'package:fcm_playground/services/configuration_service.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_launch_arguments/flutter_launch_arguments.dart';
 import 'package:provider/provider.dart';
 

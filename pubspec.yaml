@@ -38,6 +38,7 @@ dependencies:
   json_text_field:
     git: https://github.com/antonioCaballero17/json_text_field.git
   settings_ui: ^4.0.2
+  material_ui: ^1.11.1
 
 dev_dependencies:
   flutter_test:

@@ -25,7 +25,7 @@ import 'package:fcm_playground/pages/project/widgets/send_button.dart';
 import 'package:fcm_playground/widgets/buttons/delete_icon_button.dart';
 import 'package:fcm_playground/widgets/buttons/edit_icon_button.dart';
 import 'package:fcm_playground/widgets/loading_widget.dart';
-import 'package:flutter/material.dart' hide Notification;
+import 'package:material_ui/material_ui.dart' hide Notification;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_essentials_kit/flutter_essentials_kit.dart';
 import 'package:reactive_forms/reactive_forms.dart';

@@ -4,7 +4,7 @@ import 'package:fcm_playground/features/database/tables/projects/projects_table.
 import 'package:fcm_playground/misc/mappers/project/project_mapper.dart';
 import 'package:fcm_playground/services/dto/project/project_dto.dart';
 import 'package:fcm_playground/services/service.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_essentials_kit/flutter_essentials_kit.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';

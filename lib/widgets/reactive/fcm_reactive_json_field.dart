@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
+import 'package:fcm_playground/features/material/flutter_material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_essentials_kit/flutter_essentials_kit.dart';
 import 'package:json_text_field/json_text_field.dart';

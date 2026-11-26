@@ -3,7 +3,7 @@ import 'package:fcm_playground/pages/main/main_page.dart';
 import 'package:fcm_playground/pages/project/project_page.dart';
 import 'package:fcm_playground/pages/edit_project/edit_project_page.dart';
 import 'package:fcm_playground/pages/settings/settings_page.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 part 'app_router.gr.dart';
 

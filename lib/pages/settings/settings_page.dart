@@ -3,7 +3,7 @@ import 'package:fcm_playground/blocs/configuration/configuration_bloc.dart';
 import 'package:fcm_playground/features/theme/models/enums/theme_mode.dart';
 import 'package:fcm_playground/pages/settings/sheets/theme_selector_value_sheet.dart';
 import 'package:fcm_playground/widgets/loading_widget.dart';
-import 'package:flutter/material.dart' hide Route;
+import 'package:material_ui/material_ui.dart' hide Route;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_essentials_kit/extensions/commons.dart';
 import 'package:fcm_playground/features/localization/extensions/build_context.dart';

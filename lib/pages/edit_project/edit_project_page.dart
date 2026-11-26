@@ -9,7 +9,7 @@ import 'package:fcm_playground/pages/edit_project/widgets/fields/project_name_fi
 import 'package:fcm_playground/pages/edit_project/widgets/fields/project_private_key_field.dart';
 import 'package:fcm_playground/pages/edit_project/widgets/save_button.dart';
 import 'package:fcm_playground/widgets/loading_widget.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:fcm_playground/blocs/project/project_bloc.dart' as blocs;
 import 'package:fcm_playground/cubits/project/project_cubit.dart';

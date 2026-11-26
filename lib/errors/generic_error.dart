@@ -1,5 +1,5 @@
 import 'package:fcm_playground/features/localization/extensions/build_context.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_essentials_kit/flutter_essentials_kit.dart';
 
 class GenericError extends LocalizedError {

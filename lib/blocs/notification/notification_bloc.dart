@@ -4,7 +4,7 @@ import 'package:fcm_playground/errors/generic_error.dart';
 import 'package:fcm_playground/models/message/message.dart';
 import 'package:fcm_playground/models/project/project.dart';
 import 'package:fcm_playground/repositories/notification_repository.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_essentials_kit/flutter_essentials_kit.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
